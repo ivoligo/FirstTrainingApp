@@ -22,7 +22,6 @@ public class DbInit {
     @PostConstruct
     private void postConstruct(){
 
-
         Address address1 = new Address();
         address1.setCountry("Russia");
         address1.setCity("city1");

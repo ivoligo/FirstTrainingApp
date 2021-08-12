@@ -6,8 +6,6 @@ import ru.systematic.firstTrainingApp.model.Role;
 
 public class Utils {
 
-    public static long idCount = 0;
-
     public static PersonDto convert(Person person){
         PersonDto personDto = new PersonDto();
         personDto.setName(person.getName());

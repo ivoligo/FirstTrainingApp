@@ -9,5 +9,5 @@ public class Address {
     private String city;
     private String street;
     private int house;
-    private int apartment;
+    private Integer apartment;
 }
