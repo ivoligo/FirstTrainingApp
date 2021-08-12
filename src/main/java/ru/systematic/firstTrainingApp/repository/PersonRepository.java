@@ -9,8 +9,15 @@ import java.util.Map;
 public class PersonRepository {
 
     Map<Long, Person> personDb;
+    private Long idCount = 0L;
 
     public Person save(Person person){
+        idCount++;
+        person.setId(idCount);
+        return personDb.put(person.getId(), person);
+    }
+
+    public Person update(Person person){
         return personDb.put(person.getId(), person);
     }
 
@@ -22,7 +29,7 @@ public class PersonRepository {
         return personDb;
     }
 
-    public void delete(long id) {
-        personDb.remove(id);
+    public Person delete(long id) {
+        return personDb.remove(id);
     }
 }

@@ -1,12 +1,15 @@
 package ru.systematic.firstTrainingApp.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.systematic.firstTrainingApp.Utils;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Person {
 
-    private long id;
+    private Long id;
     private String name;
     private String surname;
     private String email;
@@ -14,18 +17,10 @@ public class Person {
     private Address address;
 
     public Person(String name, String surname, String email, Role role, Address address) {
-        Utils.idCount++;
-        this.id = Utils.idCount;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.role = role;
         this.address = address;
     }
-
-    public Person() {
-        Utils.idCount++;
-        this.id = Utils.idCount;
-    }
-
 }

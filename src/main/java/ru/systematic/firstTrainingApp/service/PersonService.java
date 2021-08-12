@@ -38,9 +38,7 @@ public class PersonService {
     }
 
     public Person create(PersonDto personDto) {
-        Person person = Utils.convert(personDto);
-        personRepository.save(person);
-        return person;
+        return personRepository.save(Utils.convert(personDto));
     }
 
     public Person update(long id, PersonDto personDto) {
@@ -50,11 +48,10 @@ public class PersonService {
         person.setAddress(personDto.getAddress());
         person.setEmail(personDto.getEmail());
 
-        return personRepository.save(person);
+        return personRepository.update(person);
     }
 
-    public long delete(long id) {
-        personRepository.delete(id);
-        return id;
+    public Person delete(long id) {
+        return personRepository.delete(id);
     }
 }
