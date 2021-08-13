@@ -37,7 +37,7 @@ public class DbInit {
         address2.setHouse(2);
         Person person2 = new Person("name2", "surname2", "test2@test.ru", Role.TEST_USER, address2);
 
-        personRepository.personDb = new HashMap<>();
+        PersonRepository.personDb = new HashMap<>();
         personRepository.save(person1);
         personRepository.save(person2);
     }

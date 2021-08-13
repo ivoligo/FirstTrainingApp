@@ -3,10 +3,10 @@ package ru.systematic.firstTrainingApp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.systematic.firstTrainingApp.Utils;
+import ru.systematic.firstTrainingApp.dto.PersonDto;
 import ru.systematic.firstTrainingApp.exception.NotFoundException;
 import ru.systematic.firstTrainingApp.model.Person;
 import ru.systematic.firstTrainingApp.repository.PersonRepository;
-import ru.systematic.firstTrainingApp.dto.PersonDto;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -51,7 +51,7 @@ public class PersonService {
         return personRepository.update(person);
     }
 
-    public Person delete(long id) {
-        return personRepository.delete(id);
+    public PersonDto delete(long id) {
+        return Utils.convert(personRepository.delete(id));
     }
 }
