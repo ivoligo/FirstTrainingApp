@@ -37,18 +37,18 @@ public class PersonService {
         throw new NotFoundException();
     }
 
-    public Person create(PersonDto personDto) {
-        return personRepository.save(Utils.convert(personDto));
+    public PersonDto create(PersonDto personDto) {
+        return Utils.convert(personRepository.save(Utils.convert(personDto)));
     }
 
-    public Person update(long id, PersonDto personDto) {
+    public PersonDto update(long id, PersonDto personDto) {
         Person person = personRepository.find(id);
         person.setName(personDto.getName());
         person.setSurname(personDto.getSurname());
         person.setAddress(personDto.getAddress());
         person.setEmail(personDto.getEmail());
 
-        return personRepository.update(person);
+        return Utils.convert(personRepository.update(person));
     }
 
     public PersonDto delete(long id) {

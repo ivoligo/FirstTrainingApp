@@ -101,9 +101,9 @@ class PersonServiceTest {
         personDto.setRole("Администратор");
 
         when(personRepository.save(any())).thenReturn(Utils.convert(personDto));
-        Person person = personService.create(personDto);
+        PersonDto personCreated = personService.create(personDto);
         verify(personRepository, times(1)).save(any());
-        Assertions.assertEquals(person, Utils.convert(personDto));
+        Assertions.assertEquals(personCreated, personDto);
     }
 
     @Test
@@ -117,10 +117,9 @@ class PersonServiceTest {
         PersonDto personDto = Utils.convert(person);
 
         when(personRepository.update(person1)).thenReturn(person1);
-        Person updatedPerson = personService.update(person1.getId(), personDto);
-        Assertions.assertEquals(updatedPerson.getId(), person1.getId());
+        PersonDto updatedPerson = personService.update(person1.getId(), personDto);
         Assertions.assertEquals(updatedPerson.getAddress(), person2.getAddress());
-        Assertions.assertEquals(updatedPerson.getRole(), Role.ADMIN);
+        Assertions.assertEquals(updatedPerson.getRole(), "Администратор");
         Assertions.assertEquals(updatedPerson.getName(), "updatedName");
         Assertions.assertEquals(updatedPerson.getSurname(), "updatedSurname");
         Assertions.assertEquals(updatedPerson.getEmail(), person2.getEmail());

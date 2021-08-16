@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.systematic.firstTrainingApp.dto.PersonDto;
-import ru.systematic.firstTrainingApp.model.Person;
 import ru.systematic.firstTrainingApp.service.PersonService;
 
 @RestController
