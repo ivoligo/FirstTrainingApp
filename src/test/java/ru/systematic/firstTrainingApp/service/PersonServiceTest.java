@@ -121,7 +121,6 @@ class PersonServiceTest {
         Assertions.assertEquals(updatedPerson.getId(), person1.getId());
         Assertions.assertEquals(updatedPerson.getAddress(), person2.getAddress());
         Assertions.assertEquals(updatedPerson.getRole(), Role.ADMIN);
-        Assertions.assertEquals(updatedPerson.getAddress(), person2.getAddress());
         Assertions.assertEquals(updatedPerson.getName(), "updatedName");
         Assertions.assertEquals(updatedPerson.getSurname(), "updatedSurname");
         Assertions.assertEquals(updatedPerson.getEmail(), person2.getEmail());

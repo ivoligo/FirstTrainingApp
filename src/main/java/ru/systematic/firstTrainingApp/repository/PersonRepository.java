@@ -14,11 +14,13 @@ public class PersonRepository {
     public Person save(Person person){
         idCount++;
         person.setId(idCount);
-        return personDb.put(person.getId(), person);
+        personDb.put(person.getId(), person);
+        return personDb.get(person.getId());
     }
 
     public Person update(Person person){
-        return personDb.put(person.getId(), person);
+        personDb.put(person.getId(), person);
+        return personDb.get(person.getId());
     }
 
     public Person find(Long id){
