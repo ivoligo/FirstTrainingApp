@@ -8,17 +8,19 @@ import java.util.Map;
 @Component
 public class PersonRepository {
 
-    Map<Long, Person> personDb;
-    private Long idCount = 0L;
+    static Map<Long, Person> personDb;
+    private static Long idCount = 0L;
 
     public Person save(Person person){
         idCount++;
         person.setId(idCount);
-        return personDb.put(person.getId(), person);
+        personDb.put(person.getId(), person);
+        return personDb.get(person.getId());
     }
 
     public Person update(Person person){
-        return personDb.put(person.getId(), person);
+        personDb.put(person.getId(), person);
+        return personDb.get(person.getId());
     }
 
     public Person find(Long id){

@@ -3,10 +3,10 @@ package ru.systematic.firstTrainingApp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.systematic.firstTrainingApp.Utils;
+import ru.systematic.firstTrainingApp.dto.PersonDto;
 import ru.systematic.firstTrainingApp.exception.NotFoundException;
 import ru.systematic.firstTrainingApp.model.Person;
 import ru.systematic.firstTrainingApp.repository.PersonRepository;
-import ru.systematic.firstTrainingApp.dto.PersonDto;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,21 +37,21 @@ public class PersonService {
         throw new NotFoundException();
     }
 
-    public Person create(PersonDto personDto) {
-        return personRepository.save(Utils.convert(personDto));
+    public PersonDto create(PersonDto personDto) {
+        return Utils.convert(personRepository.save(Utils.convert(personDto)));
     }
 
-    public Person update(long id, PersonDto personDto) {
+    public PersonDto update(long id, PersonDto personDto) {
         Person person = personRepository.find(id);
         person.setName(personDto.getName());
         person.setSurname(personDto.getSurname());
         person.setAddress(personDto.getAddress());
         person.setEmail(personDto.getEmail());
 
-        return personRepository.update(person);
+        return Utils.convert(personRepository.update(person));
     }
 
-    public Person delete(long id) {
-        return personRepository.delete(id);
+    public PersonDto delete(long id) {
+        return Utils.convert(personRepository.delete(id));
     }
 }
